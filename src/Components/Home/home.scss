@@ -121,6 +121,10 @@
                 .input[type=range]{
                     background: blue;
                 }
+
+                .input[type=file]{
+                    color: var(--textColor);
+                }
             }
             
             .searchOptions{

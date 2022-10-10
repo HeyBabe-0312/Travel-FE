@@ -160,6 +160,10 @@
   background: blue;
 }
 
+.home .homeContent .cardDiv .input .input[type=file] {
+  color: var(--textColor);
+}
+
 .home .homeContent .cardDiv .searchOptions {
   position: absolute;
   background: var(--gradientColor);

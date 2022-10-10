@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import './home.css'
 import vid1 from '../../assets/videos/vid1.mp4'
 import {GrLocation} from 'react-icons/gr'
@@ -13,6 +13,7 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 const Home = () => {
+  const [topic, setTopic] = useState('None');
   useEffect(()=>{
     Aos.init({duration: 1800})
   },[])
@@ -41,25 +42,30 @@ const Home = () => {
           </div>
 
           <div className="dateInput">
-            <label htmlFor="date">Select your date:</label>
+            <label htmlFor="date">Search by image:</label>
             <div className="input flex">
-              <input type='date' ></input>
+            <input type="file" className="fileIpt" name="avatar" accept="image/png, image/jpeg"/>
             </div>
           </div>
 
           <div className="priceInput">
             <div className="label_total flex">
-              <label htmlFor="price">Max price:</label>
-              <h3 className='total'>$5000</h3>
+              <label htmlFor="price">Search by topic:</label>
+              <h3 className='total'>{topic}</h3>
             </div>
             <div className="input flex">
-              <input type="range" max="5000" min="1000" />
+            <select name="topic" id="topics" onChange={(e)=>setTopic(e.target.value)}>
+              <option value="None">None</option>
+              <option value="Topic1">Topic1</option>
+              <option value="Topic2">Topic2</option>
+              <option value="Topic3">Topic3</option>
+            </select>
             </div>
           </div>
 
           <div className="searchOptions flex">
             <HiFilter className="icon"/>
-            <span>MORE FILTERS</span>
+            <span>ENTER</span>
           </div>
         </div>
     
